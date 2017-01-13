@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile_Script : MonoBehaviour {
-
+       
     public float initialForce;              // Initial force when projectile is fired
-    public float reduceForceAmount;         // The amount of force to reduce over time
-    public float reduceForceTime;           // The rate inwhich the force is reduced over time
+    public float increaseBulletDragAmount;         // The amount of force to reduce over time
+    public float increaseDragRate;           // The rate inwhich the force is reduced over time
 
     [SerializeField]
     private Rigidbody rb;                   // Rigidbody to be used to apply force exposed tp projectile
@@ -18,19 +18,28 @@ public class Projectile_Script : MonoBehaviour {
     }
 
     void InitialForce()
-    {
-        
-        rb.AddForce(new Vector3(0,0,transform.localPosition.z) * initialForce);
+    {        
+        rb.AddForce(transform.forward * initialForce * Time.deltaTime);
+        StartCoroutine("IncreaseDragDelay");
     }
 
-    void ReduceForce()
+    void IncreaseDrag()
     {
-
+        rb.drag += increaseBulletDragAmount;
+        StartCoroutine("IncreaseDragDelay");
     }
 
-    IEnumerator ReduceForceDelay()
+    void OnCollisionEnter(Collision col)
     {
-        yield return new WaitForSeconds(reduceForceTime);           // The rate inwhich the force will be reduced
-        ReduceForce();          // Call the fuction to reduce the force
+        if(col.gameObject.layer != 8)
+        {            
+            Destroy(gameObject);
+        }            
+    }
+
+    IEnumerator IncreaseDragDelay()
+    {
+        yield return new WaitForSeconds(increaseDragRate);           // The rate inwhich the force will be reduced
+        IncreaseDrag();          // Call the fuction to reduce the force
     }
 }

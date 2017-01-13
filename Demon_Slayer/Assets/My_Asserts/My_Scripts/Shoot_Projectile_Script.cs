@@ -15,7 +15,7 @@ public class Shoot_Projectile_Script : MonoBehaviour {
     {
         Debug.Log("Shoot Projectile Called");
 
-        GameObject go = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
+        GameObject go = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         projectileScript = go.GetComponent(typeof(Projectile_Script)) as Projectile_Script;
 
         projectileScript.ShootPrimaryProjectile();         // Call the function ShootPrjectile attached to the Projectile Gameobject
