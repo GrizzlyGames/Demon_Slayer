@@ -14,7 +14,7 @@ public class Projectile_Script : MonoBehaviour {
     public void ShootPrimaryProjectile()           // Public funciton called by the player
     {
         InitialForce();
-        Debug.Log("Shoot Projectile Function Called");
+        // Debug.Log("Shoot Projectile Function Called");
     }
 
     void InitialForce()

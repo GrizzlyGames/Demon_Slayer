@@ -46,18 +46,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AI\Actions\WanderLocation.cs" />
      <Compile Include="Assets\Enemy_Script.cs" />
      <Compile Include="Assets\My_Asserts\My_Scripts\Shoot_Projectile_Script.cs" />
      <Compile Include="Assets\Player_Script.cs" />
      <Compile Include="Assets\Projectile_Script.cs" />
+     <None Include="Assets\RAIN\Editor\Shaders\RAINShader.shader" />
+     <None Include="Assets\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -73,11 +73,14 @@
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINMetaform">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAINMetaform.dll</HintPath>
+ </Reference>
+ <Reference Include="RAIN">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAIN.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>E:/Unity Install Files/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

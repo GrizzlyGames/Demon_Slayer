@@ -32,7 +32,7 @@ public class Player_Script : MonoBehaviour {
     void GetShootProjectileScript()         // Gets the script attached to the weapon in the weapon holder
     {
         shootProjectileScript = weaponHolder.GetComponentInChildren(typeof(Shoot_Projectile_Script)) as Shoot_Projectile_Script;        // Gets the script Shoot_Projectile_Script from the projectile Gameobject
-        Debug.Log(shootProjectileScript.name);      // Name of weapon in weapon holder
+        // Debug.Log(shootProjectileScript.name);      // Name of weapon in weapon holder
     }
 
     void ShootPrimaryProjectile()

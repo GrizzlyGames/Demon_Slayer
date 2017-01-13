@@ -13,7 +13,7 @@ public class Shoot_Projectile_Script : MonoBehaviour {
 
     public void ShootPrimaryProjectile()           // Public funciton called by the player
     {
-        Debug.Log("Shoot Projectile Called");
+        // Debug.Log("Shoot Projectile Called");
 
         GameObject go = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         projectileScript = go.GetComponent(typeof(Projectile_Script)) as Projectile_Script;
