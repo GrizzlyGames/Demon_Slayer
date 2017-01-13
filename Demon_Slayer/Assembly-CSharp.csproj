@@ -48,10 +48,11 @@
   <ItemGroup>
      <Compile Include="Assets\AI\Actions\WanderLocation.cs" />
      <Compile Include="Assets\Enemy_Script.cs" />
-     <Compile Include="Assets\My_Asserts\My_Scripts\Shoot_Projectile_Script.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Shoot_Projectile_Script.cs" />
      <Compile Include="Assets\Player_Script.cs" />
      <Compile Include="Assets\Projectile_Script.cs" />
      <None Include="Assets\RAIN\Editor\Shaders\RAINShader.shader" />
+     <None Include="Assets\AI\BehaviorTrees\Patrol.txt" />
      <None Include="Assets\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
@@ -76,11 +77,11 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
- <Reference Include="RAINMetaform">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAINMetaform.dll</HintPath>
- </Reference>
  <Reference Include="RAIN">
  <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAIN.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINMetaform">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAINMetaform.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>E:/Unity Install Files/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

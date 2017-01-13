@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\RAIN\Editor\Shaders\RAINShader.shader" />
+     <None Include="Assets\AI\BehaviorTrees\Patrol.txt" />
      <None Include="Assets\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
@@ -102,6 +103,18 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+ <Reference Include="RAIN">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAIN.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINMetaform">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAINMetaform.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINEditor">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/Editor/RAINEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINMetaformEditor">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/Editor/RAINMetaformEditor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>E:/Unity Install Files/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -116,18 +129,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>E:/Unity Install Files/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="RAINMetaformEditor">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/Editor/RAINMetaformEditor.dll</HintPath>
- </Reference>
- <Reference Include="RAINMetaform">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAINMetaform.dll</HintPath>
- </Reference>
- <Reference Include="RAIN">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAIN.dll</HintPath>
- </Reference>
- <Reference Include="RAINEditor">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/Editor/RAINEditor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>E:/Unity Install Files/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
