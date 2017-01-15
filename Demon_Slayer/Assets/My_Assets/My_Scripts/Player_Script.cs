@@ -11,6 +11,11 @@ public class Player_Script : MonoBehaviour
     private int maximumAmmo;
     private GameObject projectileGO;
 
+    [SerializeField]
+    private int health = 100;
+    [SerializeField]
+    private int maxHealth = 100;
+
     protected bool bReloading;
 
     void Awake()
@@ -88,6 +93,21 @@ public class Player_Script : MonoBehaviour
         return (currentAmmo);
     }
     #endregion
+
+    public int Health()
+    {
+        return (health);
+    }
+    public void DecreaseHealth(int healthAmount)
+    {
+        health -= healthAmount;
+    }
+
+
+    public int MaxHealth()
+    {
+        return (maxHealth);
+    }
 
     IEnumerator ReloadDelay()
     {

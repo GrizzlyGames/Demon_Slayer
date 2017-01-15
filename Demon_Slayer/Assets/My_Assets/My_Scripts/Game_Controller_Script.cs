@@ -13,7 +13,8 @@ public class Game_Controller_Script : MonoBehaviour
     [SerializeField]
     private Text AmmoText;                                  // Assign AmmoText from scene
 
-    
+    [SerializeField]
+    private Scrollbar healthScrollbar;
 
     void Awake()                                            // First function to run in scene
     {
@@ -25,6 +26,9 @@ public class Game_Controller_Script : MonoBehaviour
         if (AmmoText == null)                               // Check if the AmmoText has been assigned already
             AmmoText = GameObject.Find("Ammo_Text").GetComponent<Text>();       // If the AmmoText hasn't been assigned assign it
 
+        if (healthScrollbar == null)
+            healthScrollbar = GameObject.Find("Health_Scrollbar").GetComponent<Scrollbar>();
+
         Instantiate(playerGO, new Vector3(1, 1, 1), Quaternion.Euler(0, 0, 0));         // Create player in scene
 
         SpawnEnemy(enemyGO);                    // Spawn Enemy
@@ -32,11 +36,17 @@ public class Game_Controller_Script : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+        Instantiate(enemy, new Vector3(10, 0, 10), Quaternion.Euler(0, 0, 0));
     }
 
     public void UpdateAmmoText(string message)
     {
         AmmoText.text = message;
+    }
+
+    public void UpdateHealthScrollbar(int health)
+    {
+        Player_Script.instance.DecreaseHealth(health);
+        healthScrollbar.size = (float)Player_Script.instance.Health() / (float)Player_Script.instance.MaxHealth();
     }
 }
