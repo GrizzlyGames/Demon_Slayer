@@ -46,15 +46,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AI\Actions\WanderLocation.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Chase_Player.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Game_Controller_Script.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Max_Ammo_Pickup_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Projectile_Script.cs" />
-     <Compile Include="Assets\My_Assets\My_Scripts\Shoot_Projectile_Script.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Rotate_Object_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Spawn_Enemy_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\TakeDamage_Script.cs" />
-     <None Include="Assets\RAIN\Editor\Shaders\RAINShader.shader" />
-     <None Include="Assets\AI\BehaviorTrees\Patrol.txt" />
-     <None Include="Assets\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Weapons_Class.cs" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
@@ -75,12 +75,6 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
- <Reference Include="RAIN">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAIN.dll</HintPath>
- </Reference>
- <Reference Include="RAINMetaform">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Assets/RAIN/RAINMetaform.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>E:/Unity Install Files/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

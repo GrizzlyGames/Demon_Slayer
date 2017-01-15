@@ -7,8 +7,6 @@ Project("{08CEA038-4571-829A-050A-20B07677006B}") = "Demon_Slayer", "Assembly-CS
 EndProject
 Project("{08CEA038-4571-829A-050A-20B07677006B}") = "Demon_Slayer", "Assembly-CSharp-Editor-firstpass.csproj", "{255F1500-3F10-6485-FAA3-0CA83D96ED8B}"
 EndProject
-Project("{08CEA038-4571-829A-050A-20B07677006B}") = "Demon_Slayer", "Assembly-CSharp-Editor.csproj", "{2F06A26F-A0C8-91C1-4A5B-BF57CC97B94A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{255F1500-3F10-6485-FAA3-0CA83D96ED8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{255F1500-3F10-6485-FAA3-0CA83D96ED8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{255F1500-3F10-6485-FAA3-0CA83D96ED8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F06A26F-A0C8-91C1-4A5B-BF57CC97B94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F06A26F-A0C8-91C1-4A5B-BF57CC97B94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F06A26F-A0C8-91C1-4A5B-BF57CC97B94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F06A26F-A0C8-91C1-4A5B-BF57CC97B94A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,7 +16,7 @@ public class Projectile_Script : MonoBehaviour {
         rb = GetComponent(typeof(Rigidbody)) as Rigidbody;
     }
 
-    public void ShootPrimaryProjectile()           // Public funciton called by the player
+    void FixedUpdate()
     {
         rb.AddForce(transform.forward * initialForce * Time.deltaTime);
     }

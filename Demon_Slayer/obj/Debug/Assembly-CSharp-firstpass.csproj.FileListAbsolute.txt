@@ -28,6 +28,3 @@ C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Unity
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEngine.VR.xml
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp-firstpass.pdb
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAIN.dll
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAINMetaform.dll

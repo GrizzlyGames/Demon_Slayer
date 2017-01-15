@@ -1,54 +1,102 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public class Player_Script : MonoBehaviour
+{
 
-public class Player_Script : MonoBehaviour {
+    public static Player_Script instance;
 
-    [SerializeField]
-    GameObject weaponHolder;
+    private int currentAmmo;
+    private int magazineCapacity;
+    private int maximumAmmo;
+    private GameObject projectileGO;
 
-    private Shoot_Projectile_Script shootProjectileScript;          // Holds the script Shoot_Projectile_Script from the projectile Gameobject
+    protected bool bReloading;
 
-	// Use this for initialization
-	void Start () {
-        if(weaponHolder == null)
-        weaponHolder = gameObject.transform.GetChild(1).gameObject;
+    void Awake()
+    {
+        instance = this;
+    }
 
-        GetShootProjectileScript();         // Call GetShootProjectileScript      
-	}
+    // Use this for initialization
+    void Start()
+    {
+        magazineCapacity = GetMagazineCapacity();
+        currentAmmo = magazineCapacity;
+        maximumAmmo = GetMaximumAmmo();
+
+        Game_Controller_Script.instance.UpdateAmmoText();
+    }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             ShootPrimaryProjectile();
-        }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            /*
+            if (currentAmmo > 0 && !bReloading)
+                ShootPrimaryProjectile();
+            else
+                StartCoroutine("ReloadDelay");
+            */
         }
-        
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            shootProjectileScript.ReloadWeapon();
-        }
-
-    }
-
-    void GetShootProjectileScript()         // Gets the script attached to the weapon in the weapon holder
-    {
-        shootProjectileScript = weaponHolder.GetComponentInChildren(typeof(Shoot_Projectile_Script)) as Shoot_Projectile_Script;        // Gets the script Shoot_Projectile_Script from the projectile Gameobject
-        // Debug.Log(shootProjectileScript.name);      // Name of weapon in weapon holder
     }
 
     void ShootPrimaryProjectile()
     {
-        shootProjectileScript.ShootPrimaryProjectile();        // Call the function ShootPrimaryProjectile from the Shoot Projectile Script
+        currentAmmo--;        
+        Game_Controller_Script.instance.UpdateAmmoText();
+        GameObject go = Instantiate(Weapons_Class.instance.Projectile(), Weapons_Class.instance.ProjectileSpawnPoint().position, Weapons_Class.instance.ProjectileSpawnPoint().rotation);
+    }
+
+    public void MaxAmmoPickedUp()
+    {
+        maximumAmmo = GetMaximumAmmo();
+        Game_Controller_Script.instance.UpdateAmmoText();
+    }
+
+    protected int GetMaximumAmmo()
+    {
+        return (Weapons_Class.instance.MaxAmmo());
+    }
+    protected int GetMagazineCapacity()
+    {
+        return (Weapons_Class.instance.MagazineCapacity());
+    }
+
+    #region Getters
+    public Vector3 PlayerPosition()
+    {
+        return (transform.position);
+    }
+    public Transform PlayerTransform()
+    {
+        return (transform);
+    }
+    public int MaximumAmmo()
+    {
+        return (maximumAmmo);
+    }
+    public int CurrentAmmo()
+    {
+        return (currentAmmo);
+    }
+    #endregion
+
+    IEnumerator ReloadDelay()
+    {
+        bReloading = true;
+        maximumAmmo = magazineCapacity - currentAmmo;
+        yield return new WaitForSeconds(3);
+        currentAmmo = magazineCapacity;
+        Game_Controller_Script.instance.UpdateAmmoText();
+        bReloading = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Max_Ammo_Pickup_Script>() != null)
+            other.GetComponent<Max_Ammo_Pickup_Script>().MaxReload();
     }
 }

@@ -30,5 +30,3 @@ C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-C
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp.pdb
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAIN.dll
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAINMetaform.dll
