@@ -35,17 +35,8 @@ public class Game_Controller_Script : MonoBehaviour
         Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
     }
 
-    public void UpdateAmmoText()
+    public void UpdateAmmoText(string message)
     {
-        AmmoText.text = Player_Script.instance.CurrentAmmo().ToString() + " / " + Player_Script.instance.MaximumAmmo().ToString();
-
-
-        /*
-        if (Player_Script.instance.CurrentAmmo() >= 1)
-            AmmoText.text = Player_Script.instance.CurrentAmmo().ToString() + " / " + Player_Script.instance.MaximumAmmo().ToString();
-            
-        else
-            AmmoText.text = "Reloading...";
-             * */
+        AmmoText.text = message;
     }
 }

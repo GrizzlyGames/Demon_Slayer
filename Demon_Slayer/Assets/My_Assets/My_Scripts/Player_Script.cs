@@ -25,35 +25,40 @@ public class Player_Script : MonoBehaviour
         currentAmmo = magazineCapacity;
         maximumAmmo = GetMaximumAmmo();
 
-        Game_Controller_Script.instance.UpdateAmmoText();
+        Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ShootPrimaryProjectile();
-
-            /*
-            if (currentAmmo > 0 && !bReloading)
+            if (currentAmmo >= 1 && !bReloading)
                 ShootPrimaryProjectile();
-            else
+            else if (maximumAmmo < 1 && currentAmmo < 1)
+                Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (!bReloading && maximumAmmo > 0)
                 StartCoroutine("ReloadDelay");
-            */
         }
     }
 
     void ShootPrimaryProjectile()
     {
-        currentAmmo--;        
-        Game_Controller_Script.instance.UpdateAmmoText();
+        currentAmmo--;
+        Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
         GameObject go = Instantiate(Weapons_Class.instance.Projectile(), Weapons_Class.instance.ProjectileSpawnPoint().position, Weapons_Class.instance.ProjectileSpawnPoint().rotation);
+        if (currentAmmo < 1 && maximumAmmo > 1 && !bReloading)
+            Game_Controller_Script.instance.UpdateAmmoText("'R' to  reload");
+        else if (maximumAmmo < 1 && currentAmmo < 1)
+            Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
     }
 
     public void MaxAmmoPickedUp()
     {
         maximumAmmo = GetMaximumAmmo();
-        Game_Controller_Script.instance.UpdateAmmoText();
+        Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
     }
 
     protected int GetMaximumAmmo()
@@ -87,10 +92,26 @@ public class Player_Script : MonoBehaviour
     IEnumerator ReloadDelay()
     {
         bReloading = true;
-        maximumAmmo = magazineCapacity - currentAmmo;
+        Game_Controller_Script.instance.UpdateAmmoText("Reloading...");       
         yield return new WaitForSeconds(3);
-        currentAmmo = magazineCapacity;
-        Game_Controller_Script.instance.UpdateAmmoText();
+        if (currentAmmo + maximumAmmo >= magazineCapacity)
+        {
+            Debug.Log("current ammo: " + currentAmmo);
+            Debug.Log("max ammo: " + maximumAmmo);
+            Debug.Log("after math max ammo: " + (maximumAmmo - (magazineCapacity - currentAmmo)).ToString());
+            maximumAmmo = maximumAmmo - (magazineCapacity - currentAmmo);
+            currentAmmo = magazineCapacity;
+        }
+        else if (currentAmmo + maximumAmmo < magazineCapacity)
+        {
+            Debug.Log("current ammo + maximum ammo is less than magazine capacity");
+
+            Debug.Log("current ammo: " + currentAmmo);
+            Debug.Log("max ammo: " + maximumAmmo);
+            currentAmmo += maximumAmmo;
+            maximumAmmo = 0;
+        }
+        Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
         bReloading = false;
     }
 
