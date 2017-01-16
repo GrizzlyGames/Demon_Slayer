@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 public class Player_Script : MonoBehaviour
 {
 
@@ -35,18 +36,21 @@ public class Player_Script : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (health > 0)
         {
-            if (currentAmmo >= 1 && !bReloading)
-                ShootPrimaryProjectile();
-            else if (maximumAmmo < 1 && currentAmmo < 1)
-                Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (!bReloading && maximumAmmo > 0)
-                StartCoroutine("ReloadDelay");
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (currentAmmo >= 1 && !bReloading)
+                    ShootPrimaryProjectile();
+                else if (maximumAmmo < 1 && currentAmmo < 1)
+                    Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (!bReloading && maximumAmmo > 0)
+                    StartCoroutine("ReloadDelay");
+            }
+        }        
     }
 
     void ShootPrimaryProjectile()
@@ -58,12 +62,6 @@ public class Player_Script : MonoBehaviour
             Game_Controller_Script.instance.UpdateAmmoText("'R' to  reload");
         else if (maximumAmmo < 1 && currentAmmo < 1)
             Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
-    }
-
-    public void MaxAmmoPickedUp()
-    {
-        maximumAmmo = GetMaximumAmmo();
-        Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
     }
 
     protected int GetMaximumAmmo()
@@ -84,6 +82,10 @@ public class Player_Script : MonoBehaviour
     {
         return (transform);
     }
+    public int MaxHealth()
+    {
+        return (maxHealth);
+    }
     public int MaximumAmmo()
     {
         return (maximumAmmo);
@@ -101,13 +103,13 @@ public class Player_Script : MonoBehaviour
     public void DecreaseHealth(int healthAmount)
     {
         health -= healthAmount;
+        if (health <= 0)
+        {
+            gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            Game_Controller_Script.instance.UpdateMessageText("GAME OVER");
+        }
     }
-
-
-    public int MaxHealth()
-    {
-        return (maxHealth);
-    }
+        
 
     IEnumerator ReloadDelay()
     {
@@ -137,7 +139,17 @@ public class Player_Script : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Max_Ammo_Pickup_Script>() != null)
-            other.GetComponent<Max_Ammo_Pickup_Script>().MaxReload();
+        if (other.gameObject.tag.Equals("MaxAmmo"))
+        {
+            maximumAmmo = GetMaximumAmmo();
+            Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
+        }
+
+        if (other.gameObject.tag.Equals("MaxHealth"))
+        {
+            Debug.Log("Max health pickup");
+            health = maxHealth;
+            Game_Controller_Script.instance.UpdateHealthScrollbar();            
+        }
     }
 }

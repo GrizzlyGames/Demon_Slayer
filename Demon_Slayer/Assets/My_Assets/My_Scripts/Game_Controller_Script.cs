@@ -16,6 +16,9 @@ public class Game_Controller_Script : MonoBehaviour
     [SerializeField]
     private Scrollbar healthScrollbar;
 
+    [SerializeField]
+    private Text messageText;
+
     void Awake()                                            // First function to run in scene
     {
         instance = this;                                    // This object is the only instance of Game_Controller_Script
@@ -43,10 +46,12 @@ public class Game_Controller_Script : MonoBehaviour
     {
         AmmoText.text = message;
     }
-
-    public void UpdateHealthScrollbar(int health)
+    public void UpdateHealthScrollbar()
     {
-        Player_Script.instance.DecreaseHealth(health);
         healthScrollbar.size = (float)Player_Script.instance.Health() / (float)Player_Script.instance.MaxHealth();
+    }
+    public void UpdateMessageText(string message)
+    {
+        messageText.text = message;
     }
 }

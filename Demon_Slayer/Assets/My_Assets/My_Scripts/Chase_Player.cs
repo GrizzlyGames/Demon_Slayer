@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class Chase_Player : MonoBehaviour {
+public class Chase_Player : MonoBehaviour
+{
 
     public Animator anim;
+
+    public int damage = 25;
 
     [SerializeField]
     private NavMeshAgent navMeshAgent;
@@ -16,8 +19,8 @@ public class Chase_Player : MonoBehaviour {
 
     void Start()
     {
-        if(navMeshAgent == null)
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        if (navMeshAgent == null)
+            navMeshAgent = GetComponent<NavMeshAgent>();
 
         bAttacking = false;
     }
@@ -28,7 +31,6 @@ public class Chase_Player : MonoBehaviour {
         transform.LookAt(Player_Script.instance.PlayerTransform());
 
         // Debug.Log("enemy distence from player: " + Vector3.Distance(Player_Script.instance.PlayerPosition(), transform.position));
-
         if (Vector3.Distance(Player_Script.instance.PlayerPosition(), transform.position) <= attackDistence && !bAttacking)
         {
             StartCoroutine("AttackDelay");
@@ -39,8 +41,9 @@ public class Chase_Player : MonoBehaviour {
     {
         anim.SetTrigger("Attack");
         bAttacking = true;
-        Game_Controller_Script.instance.UpdateHealthScrollbar(10);
-        yield return new WaitForSeconds(1);        
+        Player_Script.instance.DecreaseHealth(damage);
+        Game_Controller_Script.instance.UpdateHealthScrollbar();
+        yield return new WaitForSeconds(1);
         bAttacking = false;
     }
 }
