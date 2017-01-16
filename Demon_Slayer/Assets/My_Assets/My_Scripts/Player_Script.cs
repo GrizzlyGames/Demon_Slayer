@@ -12,12 +12,14 @@ public class Player_Script : MonoBehaviour
     private int maximumAmmo;
     private GameObject projectileGO;
 
+    private float reloadDamage = 1;
+
+    private bool bReloading;
+
     [SerializeField]
     private int health = 100;
     [SerializeField]
     private int maxHealth = 100;
-
-    protected bool bReloading;
 
     void Awake()
     {
@@ -43,14 +45,64 @@ public class Player_Script : MonoBehaviour
                 if (currentAmmo >= 1 && !bReloading)
                     ShootPrimaryProjectile();
                 else if (maximumAmmo < 1 && currentAmmo < 1)
+                {
+                    reloadDamage = 4;
                     Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
+                }                    
             }
+
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                if (!bReloading && maximumAmmo + currentAmmo > 0)
+                {
+                    if (!Game_Controller_Script.instance.ActiveReloadScrollbarState())
+                    {
+                        Game_Controller_Script.instance.ActiveReloadScrollbarOn(true);
+                    }
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.R))
             {
-                if (!bReloading && maximumAmmo > 0)
-                    StartCoroutine("ReloadDelay");
+                if (!bReloading)
+                {
+                    if (Game_Controller_Script.instance.ActiveReloadScrollbarState())
+                    {
+                        reloadDamage = Game_Controller_Script.instance.ActiveReloadScrollbar().value;
+
+                        if (reloadDamage <= 0.2f)
+                        {
+                            reloadDamage = 1;
+                        }
+                        else if (reloadDamage > 0.2f && reloadDamage <= 0.4f)
+                        {
+                            reloadDamage = 2;
+                        }
+                        else if (reloadDamage > 0.4f && reloadDamage <= 0.6f)
+                        {
+                            reloadDamage = 3;
+                        }
+                        else if (reloadDamage > 0.6f && reloadDamage <= 0.8f)
+                        {
+                            reloadDamage = 2;
+                        }
+                        else if (reloadDamage > 0.8f)
+                        {
+                            reloadDamage = 1;
+                        }
+
+                        Game_Controller_Script.instance.ActiveReloadScrollbarOn(false);
+                        Debug.Log("Reload damage value: " + reloadDamage);
+                        StartCoroutine("ReloadDelay");
+                    }
+                }
             }
-        }        
+
+
+
+            if (Game_Controller_Script.instance.ActiveReloadScrollbarState())
+                Game_Controller_Script.instance.ActiveReloadScrollbar().value = Mathf.PingPong(Time.time, 1);
+        }
     }
 
     void ShootPrimaryProjectile()
@@ -58,10 +110,17 @@ public class Player_Script : MonoBehaviour
         currentAmmo--;
         Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
         GameObject go = Instantiate(Weapons_Class.instance.Projectile(), Weapons_Class.instance.ProjectileSpawnPoint().position, Weapons_Class.instance.ProjectileSpawnPoint().rotation);
+        go.GetComponent<Projectile_Script>().SetProjectileDamageMultiplier((int)reloadDamage);
         if (currentAmmo < 1 && maximumAmmo > 1 && !bReloading)
+        {
+            reloadDamage = 4;
             Game_Controller_Script.instance.UpdateAmmoText("'R' to  reload");
+        }            
         else if (maximumAmmo < 1 && currentAmmo < 1)
+        {
+            reloadDamage = 4;
             Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
+        }
     }
 
     protected int GetMaximumAmmo()
@@ -96,6 +155,11 @@ public class Player_Script : MonoBehaviour
     }
     #endregion
 
+    public int ReturnReloadDamage()
+    {
+        return ((int)reloadDamage);
+    }
+
     public int Health()
     {
         return (health);
@@ -109,27 +173,21 @@ public class Player_Script : MonoBehaviour
             Game_Controller_Script.instance.UpdateMessageText("GAME OVER");
         }
     }
-        
 
     IEnumerator ReloadDelay()
     {
         bReloading = true;
-        Game_Controller_Script.instance.UpdateAmmoText("Reloading...");       
-        yield return new WaitForSeconds(3);
+        Game_Controller_Script.instance.UpdateAmmoText("Reloading...");
+
+        yield return new WaitForSeconds(reloadDamage);
+
         if (currentAmmo + maximumAmmo >= magazineCapacity)
         {
-            Debug.Log("current ammo: " + currentAmmo);
-            Debug.Log("max ammo: " + maximumAmmo);
-            Debug.Log("after math max ammo: " + (maximumAmmo - (magazineCapacity - currentAmmo)).ToString());
             maximumAmmo = maximumAmmo - (magazineCapacity - currentAmmo);
             currentAmmo = magazineCapacity;
         }
         else if (currentAmmo + maximumAmmo < magazineCapacity)
         {
-            Debug.Log("current ammo + maximum ammo is less than magazine capacity");
-
-            Debug.Log("current ammo: " + currentAmmo);
-            Debug.Log("max ammo: " + maximumAmmo);
             currentAmmo += maximumAmmo;
             maximumAmmo = 0;
         }
@@ -149,7 +207,7 @@ public class Player_Script : MonoBehaviour
         {
             Debug.Log("Max health pickup");
             health = maxHealth;
-            Game_Controller_Script.instance.UpdateHealthScrollbar();            
+            Game_Controller_Script.instance.UpdateHealthScrollbar();
         }
     }
 }

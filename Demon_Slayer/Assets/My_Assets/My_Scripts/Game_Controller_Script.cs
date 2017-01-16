@@ -17,6 +17,12 @@ public class Game_Controller_Script : MonoBehaviour
     private Scrollbar healthScrollbar;
 
     [SerializeField]
+    private GameObject activeReloadGO;
+
+    [SerializeField]
+    private Scrollbar activeReloadScrollbar;
+
+    [SerializeField]
     private Text messageText;
 
     void Awake()                                            // First function to run in scene
@@ -35,6 +41,7 @@ public class Game_Controller_Script : MonoBehaviour
         Instantiate(playerGO, new Vector3(1, 1, 1), Quaternion.Euler(0, 0, 0));         // Create player in scene
 
         SpawnEnemy(enemyGO);                    // Spawn Enemy
+        StartCoroutine("SpawnDelay");
     }
 
     private void SpawnEnemy(GameObject enemy)
@@ -44,6 +51,22 @@ public class Game_Controller_Script : MonoBehaviour
 
     public void UpdateAmmoText(string message)
     {
+        if (Player_Script.instance.ReturnReloadDamage() == 1)
+        {
+            AmmoText.color = Color.cyan;
+        }
+        else if (Player_Script.instance.ReturnReloadDamage() == 2)
+        {
+            AmmoText.color = Color.magenta;
+        }
+        else if (Player_Script.instance.ReturnReloadDamage() == 3)
+        {
+            AmmoText.color = Color.red;
+        }
+        else
+        {
+            AmmoText.color = Color.white;
+        }
         AmmoText.text = message;
     }
     public void UpdateHealthScrollbar()
@@ -53,5 +76,40 @@ public class Game_Controller_Script : MonoBehaviour
     public void UpdateMessageText(string message)
     {
         messageText.text = message;
+    }
+    public void ActiveReloadScrollbarOn(bool on)
+    {
+        if (on)
+        {
+            activeReloadGO.SetActive(true);
+        }
+        else
+        {
+            activeReloadGO.SetActive(false);
+        }
+    }
+    public bool ActiveReloadScrollbarState()
+    {
+        if (activeReloadGO.activeInHierarchy)
+        {
+            return (true);
+        }
+        else
+        {
+            return (false);
+        }
+    }
+    public Scrollbar ActiveReloadScrollbar()
+    {
+        return (activeReloadScrollbar);
+    }
+
+
+    IEnumerator SpawnDelay()
+    {
+        int rndTime = Random.Range(3, 6);
+        yield return new WaitForSeconds(rndTime);
+        SpawnEnemy(enemyGO);
+        StartCoroutine("SpawnDelay");
     }
 }

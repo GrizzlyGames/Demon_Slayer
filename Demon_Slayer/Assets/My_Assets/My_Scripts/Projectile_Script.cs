@@ -21,13 +21,18 @@ public class Projectile_Script : MonoBehaviour {
         rb.AddForce(transform.forward * initialForce * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision col)
+    public void SetProjectileDamageMultiplier(int damageMultiplier)
     {
-        Destroy(gameObject);
+        projectileDamage = projectileDamage * damageMultiplier;
+    }
 
+    void OnCollisionEnter(Collision col)
+    {        
         if (col.gameObject.GetComponent<TakeDamage_Script>() != null)
         {
+            Debug.Log("Projectile Damage: " + projectileDamage);
             col.gameObject.GetComponent<TakeDamage_Script>().Damage(projectileDamage);
         }
+        Destroy(gameObject);
     }
 }
