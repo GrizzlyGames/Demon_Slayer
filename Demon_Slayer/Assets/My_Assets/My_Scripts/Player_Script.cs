@@ -92,7 +92,6 @@ public class Player_Script : MonoBehaviour
                         }
 
                         Game_Controller_Script.instance.ActiveReloadScrollbarOn(false);
-                        Debug.Log("Reload damage value: " + reloadDamage);
                         StartCoroutine("ReloadDelay");
                     }
                 }

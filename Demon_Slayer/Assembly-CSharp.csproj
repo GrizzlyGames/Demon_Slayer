@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Generate_Level_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Chase_Player.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Game_Controller_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player_Script.cs" />
@@ -54,9 +55,15 @@
      <Compile Include="Assets\My_Assets\My_Scripts\Spawn_Enemy_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\TakeDamage_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Weapons_Class.cs" />
-     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
+     <Compile Include="Assets\Sci-Fi Crate\Demo\CameraOrbitScript.cs" />
+     <Compile Include="Assets\SciFi Gun Turret Set\Scripts\CameraMouseDrag.cs" />
+     <None Include="Assets\FUTURE_BEEPS_LITE\Read_Me.txt" />
+     <None Include="Assets\SciFi Gun Turret Set\Read Me.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Sci-Fi Construction Equipment\AdditiveTint.shader" />
+     <None Include="Assets\Sci-fi City\Foliage\Materials\Vegetation.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+     <None Include="Assets\Courtyard_README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

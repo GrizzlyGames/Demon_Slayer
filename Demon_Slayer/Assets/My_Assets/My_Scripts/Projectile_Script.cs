@@ -30,7 +30,6 @@ public class Projectile_Script : MonoBehaviour {
     {        
         if (col.gameObject.GetComponent<TakeDamage_Script>() != null)
         {
-            Debug.Log("Projectile Damage: " + projectileDamage);
             col.gameObject.GetComponent<TakeDamage_Script>().Damage(projectileDamage);
         }
         Destroy(gameObject);
