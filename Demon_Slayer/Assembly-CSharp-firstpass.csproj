@@ -91,7 +91,6 @@
      <None Include="Assets\Sci-Fi Construction Equipment\AdditiveTint.shader" />
      <None Include="Assets\Sci-fi City\Foliage\Materials\Vegetation.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
-     <None Include="Assets\Courtyard_README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
