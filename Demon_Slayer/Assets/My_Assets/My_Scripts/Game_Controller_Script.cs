@@ -6,10 +6,6 @@ public class Game_Controller_Script : MonoBehaviour
 {
     public static Game_Controller_Script instance;          // Ensures there is only 1 instance of this object
 
-    public GameObject playerGO;                             // Get the player GO from prefabs folder
-
-    public GameObject enemyGO;
-
     [SerializeField]
     private Text AmmoText;                                  // Assign AmmoText from scene
 
@@ -36,17 +32,7 @@ public class Game_Controller_Script : MonoBehaviour
             AmmoText = GameObject.Find("Ammo_Text").GetComponent<Text>();       // If the AmmoText hasn't been assigned assign it
 
         if (healthScrollbar == null)
-            healthScrollbar = GameObject.Find("Health_Scrollbar").GetComponent<Scrollbar>();
-
-        Instantiate(playerGO, new Vector3(1, 1, 1), Quaternion.Euler(0, 0, 0));         // Create player in scene
-
-        SpawnEnemy(enemyGO);                    // Spawn Enemy
-        StartCoroutine("SpawnDelay");
-    }
-
-    private void SpawnEnemy(GameObject enemy)
-    {
-        Instantiate(enemy, new Vector3(10, 0, 10), Quaternion.Euler(0, 0, 0));
+            healthScrollbar = GameObject.Find("Health_Scrollbar").GetComponent<Scrollbar>();     
     }
 
     public void UpdateAmmoText(string message)
@@ -102,14 +88,5 @@ public class Game_Controller_Script : MonoBehaviour
     public Scrollbar ActiveReloadScrollbar()
     {
         return (activeReloadScrollbar);
-    }
-
-
-    IEnumerator SpawnDelay()
-    {
-        int rndTime = Random.Range(3, 6);
-        yield return new WaitForSeconds(rndTime);
-        SpawnEnemy(enemyGO);
-        StartCoroutine("SpawnDelay");
     }
 }

@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bc3116d8bf767479374a708658ea61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerGO: {fileID: 1715310997401814, guid: fc99457d88247584297132de4c7ce6a6, type: 2}
   dropShipGO: {fileID: 1349051937772864, guid: 6ddcbc41a8c89ab429bb884db04da92b, type: 2}
 --- !u!4 &520509007
 Transform:
@@ -714,8 +715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcaa3282e5d342544bbcf36f27280a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGO: {fileID: 1715310997401814, guid: fc99457d88247584297132de4c7ce6a6, type: 2}
-  enemyGO: {fileID: 1165611016984770, guid: 8e247291518ef3849a79473070ff1ac4, type: 2}
   AmmoText: {fileID: 1353649297}
   healthScrollbar: {fileID: 746585748}
   activeReloadGO: {fileID: 2001968709}

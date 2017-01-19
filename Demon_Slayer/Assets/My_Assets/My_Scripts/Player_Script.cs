@@ -96,9 +96,7 @@ public class Player_Script : MonoBehaviour
                     }
                 }
             }
-
-
-
+            
             if (Game_Controller_Script.instance.ActiveReloadScrollbarState())
                 Game_Controller_Script.instance.ActiveReloadScrollbar().value = Mathf.PingPong(Time.time, 1);
         }
@@ -200,6 +198,7 @@ public class Player_Script : MonoBehaviour
         {
             maximumAmmo = GetMaximumAmmo();
             Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
+            Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag.Equals("MaxHealth"))
@@ -207,6 +206,7 @@ public class Player_Script : MonoBehaviour
             Debug.Log("Max health pickup");
             health = maxHealth;
             Game_Controller_Script.instance.UpdateHealthScrollbar();
+            Destroy(other.gameObject);
         }
     }
 }

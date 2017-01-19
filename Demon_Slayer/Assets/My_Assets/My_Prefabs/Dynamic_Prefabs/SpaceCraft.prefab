@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ab2dd673f86db4c8818a6ce51acab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGO: {fileID: 1165611016984770, guid: 8e247291518ef3849a79473070ff1ac4, type: 2}
   healthPickUpGO: {fileID: 1424595285192602, guid: 6c395d2e42eadd049b96598fd99f2a7d,
     type: 2}
   ammoPickUpGO: {fileID: 1962438379376242, guid: 1da989a6bd826d048988825d576e308d,
