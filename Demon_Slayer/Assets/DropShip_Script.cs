@@ -26,11 +26,11 @@ public class DropShip_Script : MonoBehaviour
                 StartCoroutine("DescendingDelay");
         }
         else if (!descending)
-        {
-            transform.Translate(Vector3.up * ascendingSpeed * Time.deltaTime);
-
+        {           
             if (transform.position.y > 17)
-                descendSpeed = 100;
+                ascendingSpeed = 250;
+
+            transform.Translate(Vector3.up * ascendingSpeed * Time.deltaTime);
 
             if (transform.position.y > 1000)
             {

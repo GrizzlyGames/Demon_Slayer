@@ -4,13 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - NavAgent
-  - Emissive_Inner
-  - Emissive_Outer
-  - Emissive_Guardian
-  - Light1
-  - Light2
-  - Alter
+  - MaxAmmo
+  - MaxHealth
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,15 +16,15 @@ TagManager:
   - UI
   - 
   - 
-  - ReflProbesAndPlanarOnly
-  - PlanarAndCameraOnly
-  - CameraOnly
-  - ReflProbesAndCameraOnly
-  - ReflProbesOnly
-  - Hidden
   - 
   - 
-  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
