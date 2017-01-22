@@ -18,6 +18,7 @@ public class TakeDamage_Script : MonoBehaviour {
     public void Damage(int damage)
     {
         health -= damage;
+        Debug.Log("Damage taken: " + damage);
         anim.SetTrigger("Hurt");
         if (health <= 0) {
             Destroy(gameObject);                    // Debug.Log("Monster health: " + health);

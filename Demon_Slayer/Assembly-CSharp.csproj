@@ -56,15 +56,14 @@
      <Compile Include="Assets\My_Assets\My_Scripts\Spawn_Enemy_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\TakeDamage_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Weapons_Class.cs" />
+     <Compile Include="Assets\Sword_Collision_Script.cs" />
+     <Compile Include="Assets\Sword_Script.cs" />
      <None Include="Assets\FUTURE_BEEPS_LITE\Read_Me.txt" />
      <None Include="Assets\SciFi Gun Turret Set\Read Me.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Sci-Fi Construction Equipment\AdditiveTint.shader" />
      <None Include="Assets\Sci-fi City\Foliage\Materials\Vegetation.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -79,9 +78,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>

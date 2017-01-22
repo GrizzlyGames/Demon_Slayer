@@ -21,6 +21,8 @@ public class Player_Script : MonoBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
+    public Animator swordAmin;
+
     void Awake()
     {
         instance = this;
@@ -95,6 +97,11 @@ public class Player_Script : MonoBehaviour
                         StartCoroutine("ReloadDelay");
                     }
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                swordAmin.SetTrigger("Attack");
             }
             
             if (Game_Controller_Script.instance.ActiveReloadScrollbarState())
