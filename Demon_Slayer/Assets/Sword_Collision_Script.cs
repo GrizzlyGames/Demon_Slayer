@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Sword_Collision_Script : MonoBehaviour {
 
-    public int Damage = 100;
+    public int damage = 100;
 
-    void OnTriggerEneter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Sword hit " + col.transform.name);
         if (col.gameObject.GetComponent<TakeDamage_Script>() != null)
         {
-            col.gameObject.GetComponent<TakeDamage_Script>().Damage(Damage);
-            Debug.Log("Sword gave damage");
+            col.gameObject.GetComponent<TakeDamage_Script>().Damage(damage);
         }
     }
 }

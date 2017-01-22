@@ -23,6 +23,8 @@ public class Player_Script : MonoBehaviour
 
     public Animator swordAmin;
 
+    private bool bSword = true;
+
     void Awake()
     {
         instance = this;
@@ -101,7 +103,11 @@ public class Player_Script : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                swordAmin.SetTrigger("Attack");
+                if (bSword)
+                {
+                    StartCoroutine("SwordDelay");
+                    swordAmin.SetTrigger("Attack");  
+                }                
             }
             
             if (Game_Controller_Script.instance.ActiveReloadScrollbarState())
@@ -197,6 +203,13 @@ public class Player_Script : MonoBehaviour
         }
         Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
         bReloading = false;
+    }
+
+    IEnumerator SwordDelay()
+    {
+        bSword = false;
+        yield return new WaitForSeconds(0.5f);
+        bSword = true;
     }
 
     void OnTriggerEnter(Collider other)
