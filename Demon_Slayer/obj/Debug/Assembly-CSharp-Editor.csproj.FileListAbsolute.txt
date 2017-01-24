@@ -1,10 +1,8 @@
+C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Assembly-CSharp-Editor.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Assembly-UnityScript.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\nunit.framework.dll
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAIN.dll
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAINEditor.dll
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAINMetaform.dll
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\RAINMetaformEditor.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEditor.Advertisements.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEditor.Analytics.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
@@ -58,6 +56,5 @@ C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Unity
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEditor.VR.xml
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEngine.VR.xml
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp-Editor.pdb

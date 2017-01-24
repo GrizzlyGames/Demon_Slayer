@@ -18,6 +18,7 @@ C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Unity
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEngine.xml
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\UnityEngine.UI.xml
@@ -29,4 +30,3 @@ C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Unity
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp.dll
 C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\obj\Debug\Assembly-CSharp.pdb
-C:\Users\Grizzly\Documents\GitHub\Demon_Slayer\Demon_Slayer\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

@@ -46,21 +46,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\EffectControllerInspector.cs" />
-     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\EffectToolBar.cs" />
-     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\RenderEffectInspector.cs" />
-     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\ShaderCustomEditor\ShaderMaterialsEditor.cs" />
-     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\XUIUtils.cs" />
+     <Compile Include="Assets\BulletUnity\Examples\SceneMenu\Editor\UpdateScenesListMenu.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Constraints\Editor\B6DOFConstraintEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Constraints\Editor\BBallSocketConstraintEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Constraints\Editor\BConeTwistConstraintEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Constraints\Editor\BFixedConstraintEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Constraints\Editor\BHingedConstraintEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Constraints\Editor\BSliderConstraintEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Constraints\Editor\BTypedConstraintEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BBoxShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BBvhTriangleMeshShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BCapsuleShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BCollisionObjectEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BCompoundShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BConeShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BConvexHullShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BConvexTriangleMeshShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BCylinderShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BGhostObjectEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BMultiSphereShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BPairCachingGhostObjectEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BPhysicsWorldEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BPrimitiveComponentOrderSorter.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BRigidBodyEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BSoftBodyComponentOrderSorter.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BSoftBodyEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\BSphereShapeEditor.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\EditorHelpers.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\EditorInterface.cs" />
+     <Compile Include="Assets\BulletUnity\Scripts\Editor\PrimitiveEditor.cs" />
      <None Include="Assets\FUTURE_BEEPS_LITE\Read_Me.txt" />
+     <None Include="Assets\BulletUnity\Documentation\README-UniversalWindowsPlatform.txt" />
      <None Include="Assets\SciFi Gun Turret Set\Read Me.txt" />
-     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
-     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
+     <None Include="Assets\BulletUnity\Documentation\README-REALY-README.txt" />
+     <None Include="Assets\BulletUnity\InternalResources\LineRenderFix.shader" />
+     <None Include="Assets\Plugins\BulletUnity\Native\OSX\libbulletc.bundle\Contents\Resources\CMakeLists.txt" />
+     <None Include="Assets\BasicBeamShot\sh\Add_UVScroll_sh.shader" />
+     <None Include="Assets\BasicBeamShot\HowToUse_JP.txt" />
+     <None Include="Assets\BulletUnity\license.txt" />
+     <None Include="Assets\BasicBeamShot\sh\Sprite_Add_sh.shader" />
+     <None Include="Assets\BasicBeamShot\sh\GeroBeam_sh.shader" />
+     <None Include="Assets\BasicBeamShot\sh\BeamLine_sh.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
-     <None Include="Assets\Particlecollection_Free samples\READ ME.txt" />
-     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
+     <None Include="Assets\MentalDreamsAssets\SoldierSoundsPack\ReadMe!.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
-     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
+     <None Include="Assets\BasicBeamShot\sh\AddColor_sh.shader" />
+     <None Include="Assets\BasicBeamShot\HowToUse_EN.txt" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

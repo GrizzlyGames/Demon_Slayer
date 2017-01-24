@@ -7,6 +7,17 @@ public class Player_Script : MonoBehaviour
 
     public static Player_Script instance;
 
+    public int gunDamage = 1;                                           // Set the number of hitpoints that this gun will take away from shot objects with a health script
+    public float fireRate = 0.25f;                                      // Number in seconds which controls how often the player can fire
+    public float weaponRange = 50f;                                     // Distance in Unity units over which the player can fire
+    public float hitForce = 100f;                                       // Amount of force which will be added to objects with a rigidbody shot by the player
+    public Transform gunEnd;                                            // Holds a reference to the gun end object, marking the muzzle location of the gun
+
+    private Camera fpsCam;                                              // Holds a reference to the first person camera
+    private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);    // WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
+    private AudioSource gunAudio;                                       // Reference to the audio source which will play our shooting sound effect                                    // Reference to the LineRenderer component which will display our laserline
+    private float nextFire; 
+
     private int currentAmmo;
     private int magazineCapacity;
     private int maximumAmmo;
@@ -21,6 +32,11 @@ public class Player_Script : MonoBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
+    public GameObject Shot1;
+    public GameObject Wave;
+
+    public Transform gunNozzleTrans;
+
     public Animator swordAmin;
 
     private bool bSword = true;
@@ -29,8 +45,6 @@ public class Player_Script : MonoBehaviour
     {
         instance = this;
     }
-
-    // Use this for initialization
     void Start()
     {
         magazineCapacity = GetMagazineCapacity();
@@ -38,16 +52,78 @@ public class Player_Script : MonoBehaviour
         maximumAmmo = GetMaximumAmmo();
 
         Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
-    }
 
+        // Get and store a reference to our AudioSource component
+        gunAudio = GetComponent<AudioSource>();
+
+        // Get and store a reference to our Camera by searching this GameObject and its parents
+        fpsCam = GetComponentInChildren<Camera>();
+    }
     void Update()
     {
+        GameObject Bullet;
         if (health > 0)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 if (currentAmmo >= 1 && !bReloading)
-                    ShootPrimaryProjectile();
+                {
+                    currentAmmo--;
+                    Bullet = Shot1;
+                    //Fire
+                    // Create a vector at the center of our camera's viewport
+                    Vector3 lineOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+
+                    // Draw a line in the Scene View  from the point lineOrigin in the direction of fpsCam.transform.forward * weaponRange, using the color green
+                    Debug.DrawRay(lineOrigin, fpsCam.transform.forward * weaponRange, Color.green);
+
+                    // Check if the player has pressed the fire button and if enough time has elapsed since they last fired
+                    if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+                    {
+                        // Update the time when our player can fire next
+                        nextFire = Time.time + fireRate;
+
+                        gunAudio.Play();
+
+                        // Create a vector at the center of our camera's viewport
+                        Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+
+                        // Declare a raycast hit to store information about what our raycast has hit
+                        RaycastHit hit;
+
+                        // Check if our raycast has hit anything
+                        if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+                        {
+                            // Get a reference to a health script attached to the collider we hit
+                            if (hit.transform.GetComponent<TakeDamage_Script>() != null)
+                                hit.transform.GetComponent<TakeDamage_Script>().Damage(Weapons_Class.instance.weaponDamage);
+
+                            // Check if the object we hit has a rigidbody attached
+                            if (hit.rigidbody != null)
+                            {
+                                // Add force to the rigidbody we hit, in the direction from which it was hit
+                                hit.rigidbody.AddForce(-hit.normal * hitForce);
+                            }
+                        }
+                    }
+                    GameObject s1 = (GameObject)Instantiate(Bullet, gunNozzleTrans.position, gunNozzleTrans.rotation);
+                    s1.GetComponent<BeamParam>().SetBeamParam(this.GetComponent<BeamParam>());
+                    GameObject wav = (GameObject)Instantiate(Wave, gunNozzleTrans.position, gunNozzleTrans.rotation);
+                    wav.transform.localScale *= 0.25f;
+                    wav.transform.Rotate(Vector3.left, 90.0f);
+                    wav.GetComponent<BeamWave>().col = this.GetComponent<BeamParam>().BeamColor;
+                    Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
+                }                    
+                if (currentAmmo < 1 && maximumAmmo > 1 && !bReloading)
+                {
+                    reloadDamage = 4;
+                    Game_Controller_Script.instance.UpdateAmmoText("'R' to  reload");
+                }
+                else if (maximumAmmo < 1 && currentAmmo < 1)
+                {
+                    reloadDamage = 4;
+                    Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
+                }
                 else if (maximumAmmo < 1 && currentAmmo < 1)
                 {
                     reloadDamage = 4;
@@ -112,24 +188,6 @@ public class Player_Script : MonoBehaviour
             
             if (Game_Controller_Script.instance.ActiveReloadScrollbarState())
                 Game_Controller_Script.instance.ActiveReloadScrollbar().value = Mathf.PingPong(Time.time, 1);
-        }
-    }
-
-    void ShootPrimaryProjectile()
-    {
-        currentAmmo--;
-        Game_Controller_Script.instance.UpdateAmmoText(currentAmmo.ToString() + " / " + maximumAmmo.ToString());
-        GameObject go = Instantiate(Weapons_Class.instance.Projectile(), Weapons_Class.instance.ProjectileSpawnPoint().position, Weapons_Class.instance.ProjectileSpawnPoint().rotation);
-        go.GetComponent<Projectile_Script>().SetProjectileDamageMultiplier((int)reloadDamage);
-        if (currentAmmo < 1 && maximumAmmo > 1 && !bReloading)
-        {
-            reloadDamage = 4;
-            Game_Controller_Script.instance.UpdateAmmoText("'R' to  reload");
-        }            
-        else if (maximumAmmo < 1 && currentAmmo < 1)
-        {
-            reloadDamage = 4;
-            Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
         }
     }
 

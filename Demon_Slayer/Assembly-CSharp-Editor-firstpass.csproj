@@ -48,9 +48,22 @@
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\FUTURE_BEEPS_LITE\Read_Me.txt" />
+     <None Include="Assets\BulletUnity\Documentation\README-UniversalWindowsPlatform.txt" />
      <None Include="Assets\SciFi Gun Turret Set\Read Me.txt" />
+     <None Include="Assets\BulletUnity\Documentation\README-REALY-README.txt" />
+     <None Include="Assets\BulletUnity\InternalResources\LineRenderFix.shader" />
+     <None Include="Assets\Plugins\BulletUnity\Native\OSX\libbulletc.bundle\Contents\Resources\CMakeLists.txt" />
+     <None Include="Assets\BasicBeamShot\sh\Add_UVScroll_sh.shader" />
+     <None Include="Assets\BasicBeamShot\HowToUse_JP.txt" />
+     <None Include="Assets\BulletUnity\license.txt" />
+     <None Include="Assets\BasicBeamShot\sh\Sprite_Add_sh.shader" />
+     <None Include="Assets\BasicBeamShot\sh\GeroBeam_sh.shader" />
+     <None Include="Assets\BasicBeamShot\sh\BeamLine_sh.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\MentalDreamsAssets\SoldierSoundsPack\ReadMe!.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+     <None Include="Assets\BasicBeamShot\sh\AddColor_sh.shader" />
+     <None Include="Assets\BasicBeamShot\HowToUse_EN.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

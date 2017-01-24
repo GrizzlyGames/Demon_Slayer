@@ -6,14 +6,12 @@ public class Weapons_Class : MonoBehaviour {
 
     public static Weapons_Class instance;
 
+    public int weaponDamage = 20;
+
     [SerializeField]
     private int maximumAmmo;
     [SerializeField]
     private int magazineCapacity;
-
-    public GameObject projectileGO;
-
-    public Transform projectileSpawnPoint;
 
     void Awake()
     {
@@ -35,13 +33,5 @@ public class Weapons_Class : MonoBehaviour {
     public int MagazineCapacity()
     {
         return (magazineCapacity);
-    }
-    public Transform ProjectileSpawnPoint()
-    {
-        return (projectileSpawnPoint);
-    }
-    public GameObject Projectile()
-    {
-        return (projectileGO);
     }
 }
