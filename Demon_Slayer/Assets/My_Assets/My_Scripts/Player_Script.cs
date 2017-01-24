@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 public class Player_Script : MonoBehaviour
 {
-
     public static Player_Script instance;
 
+    public float reloadBarSpeed;
     public int gunDamage = 1;                                           // Set the number of hitpoints that this gun will take away from shot objects with a health script
     public float fireRate = 0.25f;                                      // Number in seconds which controls how often the player can fire
     public float weaponRange = 50f;                                     // Distance in Unity units over which the player can fire
     public float hitForce = 100f;                                       // Amount of force which will be added to objects with a rigidbody shot by the player
-    public Transform gunEnd;                                            // Holds a reference to the gun end object, marking the muzzle location of the gun
 
     private Camera fpsCam;                                              // Holds a reference to the first person camera
     private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);    // WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
@@ -93,10 +92,10 @@ public class Player_Script : MonoBehaviour
 
                         // Check if our raycast has hit anything
                         if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
-                        {
+                        {                            
                             // Get a reference to a health script attached to the collider we hit
                             if (hit.transform.GetComponent<TakeDamage_Script>() != null)
-                                hit.transform.GetComponent<TakeDamage_Script>().Damage(Weapons_Class.instance.weaponDamage);
+                                hit.transform.GetComponent<TakeDamage_Script>().Damage(Weapons_Class.instance.weaponDamage * (int)reloadDamage);
 
                             // Check if the object we hit has a rigidbody attached
                             if (hit.rigidbody != null)
@@ -123,12 +122,7 @@ public class Player_Script : MonoBehaviour
                 {
                     reloadDamage = 4;
                     Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
-                }
-                else if (maximumAmmo < 1 && currentAmmo < 1)
-                {
-                    reloadDamage = 4;
-                    Game_Controller_Script.instance.UpdateAmmoText("No ammo!");
-                }                    
+                }                  
             }
 
             if (Input.GetKeyUp(KeyCode.R))
@@ -187,7 +181,7 @@ public class Player_Script : MonoBehaviour
             }
             
             if (Game_Controller_Script.instance.ActiveReloadScrollbarState())
-                Game_Controller_Script.instance.ActiveReloadScrollbar().value = Mathf.PingPong(Time.time, 1);
+                Game_Controller_Script.instance.ActiveReloadScrollbar().value = Mathf.PingPong(reloadBarSpeed * Time.time, 1);
         }
     }
 

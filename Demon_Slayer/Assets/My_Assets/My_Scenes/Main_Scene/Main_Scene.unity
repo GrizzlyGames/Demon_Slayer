@@ -297,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &485540393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGO: {fileID: 1715310997401814, guid: fc99457d88247584297132de4c7ce6a6, type: 2}
   dropShipGO: {fileID: 1349051937772864, guid: 6ddcbc41a8c89ab429bb884db04da92b, type: 2}
-  numberOfEnemies: 1
+  spawnNumEnemies: 1
+  currentNumEnemies: 0
 --- !u!4 &520509007
 Transform:
   m_ObjectHideFlags: 0
@@ -457,6 +458,30 @@ Prefab:
     - target: {fileID: 4039146187643506, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040577338771056, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.01745245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040577338771056, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99984777
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040577338771056, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040577338771056, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040577338771056, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -25.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581071887933328, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d80a702d6271ed41b33516d4d630e92, type: 2}
@@ -744,7 +769,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

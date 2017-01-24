@@ -10,7 +10,9 @@ public class Game_Manager_Script : MonoBehaviour
     public GameObject playerGO;                             // Get the player GO from prefabs folder
     public GameObject dropShipGO;
 
-    public int numberOfEnemies;
+
+    public int spawnNumEnemies = 1;
+    public int currentNumEnemies;
 
     void Awake()                                            // First function to run in scene
     {
@@ -20,19 +22,19 @@ public class Game_Manager_Script : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        SpawnDropShip(dropShipGO);
+        SpawnDropShip();
         Instantiate(playerGO, new Vector3(-11, 1, 1), Quaternion.Euler(0, 0, 0));         // Create player in scene
     }
 
-    private void SpawnDropShip(GameObject dropShip)
+    public void SpawnDropShip()
     {
-        Instantiate(dropShip, new Vector3(-26, 1000, 0), Quaternion.identity);
+        Instantiate(dropShipGO, new Vector3(-26, 500, 0), Quaternion.identity);
     }
-    public void SpawnEnemy(GameObject enemy, int enemyNum)
+    public void SpawnEnemy(GameObject enemy)
     {
-        for (int i = 0; i < enemyNum; i++)
+        for (int i = 0; i < spawnNumEnemies; i++)
             Instantiate(enemy, new Vector3(-26, 0, 0), Quaternion.Euler(0, 0, 0));
-        numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        Debug.Log("Number of enemies: " + numberOfEnemies);
+        currentNumEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        Debug.Log("Number of enemies: " + currentNumEnemies);
     }
 }

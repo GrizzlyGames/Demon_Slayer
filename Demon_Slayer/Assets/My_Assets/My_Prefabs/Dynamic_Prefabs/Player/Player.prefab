@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 136765200853123742}
   - component: {fileID: 114849605160094068}
   - component: {fileID: 114720915724347084}
-  - component: {fileID: 82662457125538914}
   - component: {fileID: 114746205549510556}
+  - component: {fileID: 82662457125538914}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -627,11 +627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fe54ee0939a88428ab04608bc2b764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadBarSpeed: 1.5
   gunDamage: 1
   fireRate: 0.25
   weaponRange: 50
   hitForce: 100
-  gunEnd: {fileID: 0}
   health: 100
   maxHealth: 100
   Shot1: {fileID: 100002, guid: 5233ad8031c8bcc40a4ec895c2c8e74e, type: 2}
@@ -680,12 +680,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 20459868865198986}
   movementSettings:
-    ForwardSpeed: 200
+    ForwardSpeed: 225
     BackwardSpeed: 150
     StrafeSpeed: 100
     RunMultiplier: 0.5
     RunKey: 304
-    JumpForce: 1000
+    JumpForce: 1500
     SlopeCurveModifier:
       serializedVersion: 2
       m_Curve:

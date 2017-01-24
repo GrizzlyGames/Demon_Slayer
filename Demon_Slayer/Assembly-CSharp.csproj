@@ -76,7 +76,6 @@
      <Compile Include="Assets\My_Assets\My_Scripts\Game_Controller_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Game_Manager_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player_Script.cs" />
-     <Compile Include="Assets\My_Assets\My_Scripts\Projectile_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Rotate_Object_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Spawn_Enemy_Script.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Sword_Collision_Script.cs" />

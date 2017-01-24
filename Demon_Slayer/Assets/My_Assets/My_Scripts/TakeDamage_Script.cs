@@ -21,6 +21,9 @@ public class TakeDamage_Script : MonoBehaviour {
         Debug.Log("Damage taken: " + damage);
         anim.SetTrigger("Hurt");
         if (health <= 0) {
+            Game_Manager_Script.instance.currentNumEnemies--;
+            if (Game_Manager_Script.instance.currentNumEnemies <= 0)
+                Game_Manager_Script.instance.SpawnDropShip();
             Destroy(gameObject);                    // Debug.Log("Monster health: " + health);
         }
     }
