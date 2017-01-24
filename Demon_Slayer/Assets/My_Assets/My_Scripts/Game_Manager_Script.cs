@@ -21,7 +21,7 @@ public class Game_Manager_Script : MonoBehaviour
     void Start()
     {
         SpawnDropShip(dropShipGO);
-        Instantiate(playerGO, new Vector3(1, 1, 1), Quaternion.Euler(0, 0, 0));         // Create player in scene
+        Instantiate(playerGO, new Vector3(-11, 1, 1), Quaternion.Euler(0, 0, 0));         // Create player in scene
     }
 
     private void SpawnDropShip(GameObject dropShip)
@@ -31,7 +31,7 @@ public class Game_Manager_Script : MonoBehaviour
     public void SpawnEnemy(GameObject enemy, int enemyNum)
     {
         for (int i = 0; i < enemyNum; i++)
-            Instantiate(enemy, new Vector3(10, 0, 10), Quaternion.Euler(0, 0, 0));
+            Instantiate(enemy, new Vector3(-26, 0, 0), Quaternion.Euler(0, 0, 0));
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         Debug.Log("Number of enemies: " + numberOfEnemies);
     }

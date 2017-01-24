@@ -92,9 +92,6 @@
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\BasicBeamShot\sh\AddColor_sh.shader" />
      <None Include="Assets\BasicBeamShot\HowToUse_EN.txt" />
- <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/Grizzly/Documents/GitHub/Demon_Slayer/Demon_Slayer/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>E:/Unity Install Files/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
