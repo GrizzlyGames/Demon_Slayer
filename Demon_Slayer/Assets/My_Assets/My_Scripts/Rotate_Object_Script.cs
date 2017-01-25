@@ -10,8 +10,8 @@ public class Rotate_Object_Script : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.right * rotationSpeed * Time.deltaTime);
 
-        transform.position = new Vector3(transform.position.x, transform.position.y + (Mathf.Sin(Time.time * bobSpeed) * 0.001f), transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.localPosition.y + (Mathf.Sin(Time.time * bobSpeed) * 0.001f), transform.position.z);
 	}
 }

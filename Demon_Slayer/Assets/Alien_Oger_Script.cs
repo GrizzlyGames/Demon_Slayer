@@ -47,6 +47,9 @@ public class Alien_Oger_Script : MonoBehaviour {
     }
     public void AlienKilled()
     {
+        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        navMeshAgent.speed = 0;
         anim.SetTrigger("death");
     }
 

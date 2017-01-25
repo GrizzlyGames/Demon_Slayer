@@ -5,13 +5,15 @@ using UnityEngine;
 public class TakeDamage_Script : MonoBehaviour {
 
     public int health;
-    
+    public int creditsEarned = 50;
     public bool killed = false;
 
     public void Damage(int damage)
     {
         if (!killed)
         {
+            Game_Manager_Script.instance.playerCredits += creditsEarned * damage;
+            Game_Controller_Script.instance.UpdateCreditsText();
             health -= damage;
             Debug.Log("Damage taken: " + damage);            
             if (transform.GetComponent<Alien_Oger_Script>())

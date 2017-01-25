@@ -21,6 +21,9 @@ public class Game_Controller_Script : MonoBehaviour
     [SerializeField]
     private Text messageText;
 
+    [SerializeField]
+    private Text creditsText;
+
     void Awake()                                            // First function to run in scene
     {
         instance = this;                                    // This object is the only instance of Game_Controller_Script
@@ -35,6 +38,10 @@ public class Game_Controller_Script : MonoBehaviour
             healthScrollbar = GameObject.Find("Health_Scrollbar").GetComponent<Scrollbar>();     
     }
 
+    public void UpdateCreditsText()
+    {
+        creditsText.text = Game_Manager_Script.instance.playerCredits.ToString("N0") + "cr";
+    }
     public void UpdateAmmoText(string message)
     {
         if (Player_Script.instance.ReturnReloadDamage() == 1)
@@ -68,10 +75,12 @@ public class Game_Controller_Script : MonoBehaviour
         if (on)
         {
             activeReloadGO.SetActive(true);
+            AmmoText.text = "";
         }
         else
         {
             activeReloadGO.SetActive(false);
+            UpdateAmmoText(Player_Script.instance.CurrentAmmo().ToString() + " / " + Player_Script.instance.MaximumAmmo().ToString());
         }
     }
     public bool ActiveReloadScrollbarState()

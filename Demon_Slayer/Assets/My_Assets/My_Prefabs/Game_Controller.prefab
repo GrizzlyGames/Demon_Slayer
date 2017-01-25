@@ -56,3 +56,4 @@ MonoBehaviour:
   activeReloadGO: {fileID: 0}
   activeReloadScrollbar: {fileID: 0}
   messageText: {fileID: 0}
+  creditsText: {fileID: 0}

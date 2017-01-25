@@ -52,8 +52,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGO: {fileID: 1715310997401814, guid: fc99457d88247584297132de4c7ce6a6, type: 2}
+  healthPickUpGO: {fileID: 1424595285192602, guid: 6c395d2e42eadd049b96598fd99f2a7d,
+    type: 2}
+  ammoPickUpGO: {fileID: 1962438379376242, guid: 1da989a6bd826d048988825d576e308d,
+    type: 2}
   dropShipGO: {fileID: 1349051937772864, guid: 6ddcbc41a8c89ab429bb884db04da92b, type: 2}
   alienOgerGO: {fileID: 1654054885228814, guid: b87a617bd65fd794086a4cd950f1cbe4,
     type: 2}
+  playerCredits: 0
   spawnNumEnemies: 1
   currentNumEnemies: 0
