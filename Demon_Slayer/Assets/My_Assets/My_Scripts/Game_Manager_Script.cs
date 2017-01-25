@@ -10,6 +10,7 @@ public class Game_Manager_Script : MonoBehaviour
     public GameObject playerGO;                             // Get the player GO from prefabs folder
     public GameObject dropShipGO;
 
+    public GameObject alienOgerGO;
 
     public int spawnNumEnemies = 1;
     public int currentNumEnemies;
@@ -30,11 +31,13 @@ public class Game_Manager_Script : MonoBehaviour
     {
         Instantiate(dropShipGO, new Vector3(-26, 500, 0), Quaternion.identity);
     }
-    public void SpawnEnemy(GameObject enemy)
+    public void SpawnEnemy()
     {
         for (int i = 0; i < spawnNumEnemies; i++)
-            Instantiate(enemy, new Vector3(-26, 0, 0), Quaternion.Euler(0, 0, 0));
-        currentNumEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        {
+            Instantiate(alienOgerGO, new Vector3(-26, 0, 0), Quaternion.Euler(0, 0, 0));
+            currentNumEnemies++;
+        }
         Debug.Log("Number of enemies: " + currentNumEnemies);
     }
 }

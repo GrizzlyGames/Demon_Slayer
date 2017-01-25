@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DropShip_Script : MonoBehaviour
 { 
-    public GameObject enemyGO;
-
     public GameObject healthPickUpGO;
     public GameObject ammoPickUpGO;
     
@@ -35,7 +33,7 @@ public class DropShip_Script : MonoBehaviour
 
             if (transform.position.y > 1000)
             {
-                Game_Manager_Script.instance.SpawnEnemy(enemyGO);
+                Game_Manager_Script.instance.SpawnEnemy();
                 Game_Manager_Script.instance.spawnNumEnemies = Game_Manager_Script.instance.spawnNumEnemies * 2;
                 Destroy(gameObject);
             }                
@@ -48,5 +46,5 @@ public class DropShip_Script : MonoBehaviour
         Instantiate(ammoPickUpGO, new Vector3(transform.position.x + 1, transform.position.y - 3.5f, transform.position.z), Quaternion.identity);
         yield return new WaitForSeconds(3);
         descending = false;
-    }
+    }  
 }

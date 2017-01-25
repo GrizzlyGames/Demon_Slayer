@@ -13,7 +13,6 @@ public class Player_Script : MonoBehaviour
     public float hitForce = 100f;                                       // Amount of force which will be added to objects with a rigidbody shot by the player
 
     private Camera fpsCam;                                              // Holds a reference to the first person camera
-    private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);    // WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
     private AudioSource gunAudio;                                       // Reference to the audio source which will play our shooting sound effect                                    // Reference to the LineRenderer component which will display our laserline
     private float nextFire; 
 

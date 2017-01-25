@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Alien_Oger_Script.cs" />
      <Compile Include="Assets\BasicBeamShot\SampleStage\GetUI.cs" />
      <Compile Include="Assets\BasicBeamShot\Script\AutoDestroy.cs" />
      <Compile Include="Assets\BasicBeamShot\Script\BM_WaveEffect.cs" />

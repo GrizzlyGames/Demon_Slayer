@@ -4,27 +4,39 @@ using UnityEngine;
 
 public class TakeDamage_Script : MonoBehaviour {
 
-    [SerializeField]
-    private Animator anim;
-
     public int health;
-
-    void Start()
-    {
-        if(anim == null)
-        anim = GetComponent<Animator>();
-    }
+    
+    public bool killed = false;
 
     public void Damage(int damage)
     {
-        health -= damage;
-        Debug.Log("Damage taken: " + damage);
-        anim.SetTrigger("Hurt");
-        if (health <= 0) {
-            Game_Manager_Script.instance.currentNumEnemies--;
-            if (Game_Manager_Script.instance.currentNumEnemies <= 0)
-                Game_Manager_Script.instance.SpawnDropShip();
-            Destroy(gameObject);                    // Debug.Log("Monster health: " + health);
-        }
+        if (!killed)
+        {
+            health -= damage;
+            Debug.Log("Damage taken: " + damage);            
+            if (transform.GetComponent<Alien_Oger_Script>())
+                transform.GetComponent<Alien_Oger_Script>().AlienHit();
+
+            if (health <= 0)
+            {
+                if (transform.GetComponent<Alien_Oger_Script>())
+                    transform.GetComponent<Alien_Oger_Script>().AlienKilled();
+
+                if (Game_Manager_Script.instance.currentNumEnemies <= 0)
+                    Game_Manager_Script.instance.SpawnDropShip();                                
+
+                StartCoroutine(DeathDelay());
+            }
+        }        
+    }
+        
+    IEnumerator DeathDelay()
+    {
+        killed = true;
+        Game_Manager_Script.instance.currentNumEnemies--;
+        if (Game_Manager_Script.instance.currentNumEnemies < 1)
+            Game_Manager_Script.instance.SpawnDropShip();
+        yield return new WaitForSeconds(6);
+        Destroy(gameObject); 
     }
 }
